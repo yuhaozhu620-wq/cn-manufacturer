@@ -175,6 +175,15 @@ ul {
     font-size: 22px;
     font-weight: 700;
     color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 38px;
+    width: auto;
+    border-radius: 4px;
 }
 
 .nav-menu {
@@ -837,6 +846,17 @@ a.contact-method:hover {
     color: #fff;
     font-size: 22px;
     margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-brand .logo-img {
+    height: 36px;
+    width: auto;
+    border-radius: 4px;
+    background: #fff;
+    padding: 2px;
 }
 
 .footer-brand p {
