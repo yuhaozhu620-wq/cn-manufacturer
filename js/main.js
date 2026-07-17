@@ -10,63 +10,63 @@
 const products = [
     {
         id: 1,
-        name: 'Wireless Bluetooth Earbuds',
-        category: 'electronics',
-        emoji: '🎧',
-        description: 'Premium TWS earbuds with noise cancellation, 36hr battery life. Custom logo & packaging available.',
+        name: 'Custom Electronics Blister Tray',
+        category: 'blister',
+        emoji: '📱',
+        description: 'Precision-formed PVC/PET blister trays for electronics packaging. Anti-static options available. Custom design with your exact specifications.',
         image: '',
-        tags: ['Hot Seller', 'OEM Available', 'CE/FCC'],
-        moq: 'MOQ: 100 pcs'
+        tags: ['Anti-Static', 'Custom Mold', 'CE/RoHS'],
+        moq: 'MOQ: 500 pcs'
     },
     {
         id: 2,
-        name: 'Silicone Kitchen Utensil Set',
-        category: 'kitchen',
-        emoji: '🍳',
-        description: '10-piece food-grade silicone cooking set. Heat-resistant, non-stick safe, dishwasher safe.',
+        name: 'Food-Grade Clear Blister Box',
+        category: 'blister',
+        emoji: '🍓',
+        description: 'PET food-safe blister containers for fruits, baked goods & fresh produce. Perfect clarity, stackable design, tamper-evident sealing.',
         image: '',
-        tags: ['Best Seller', 'Custom Colors', 'LFGB Certified'],
-        moq: 'MOQ: 200 sets'
+        tags: ['FDA Approved', 'Food Grade', 'Custom Size'],
+        moq: 'MOQ: 1000 pcs'
     },
     {
         id: 3,
-        name: 'Bamboo Fiber Lunch Box',
-        category: 'kitchen',
-        emoji: '🍱',
-        description: 'Eco-friendly bento lunch box with compartments. Microwave & dishwasher safe, BPA-free.',
+        name: 'Hardware & Tool Blister Pack',
+        category: 'blister',
+        emoji: '🔧',
+        description: 'Heavy-duty PVC blister packs for hardware tools, screws & fittings. Strong card backing, retail-ready with euro slot hang hole.',
         image: '',
-        tags: ['Eco-Friendly', 'OEM Available', 'FDA'],
-        moq: 'MOQ: 300 pcs'
+        tags: ['Retail Ready', 'Heavy Duty', 'Custom Print'],
+        moq: 'MOQ: 500 pcs'
     },
     {
         id: 4,
-        name: 'Portable Power Bank 20000mAh',
-        category: 'electronics',
-        emoji: '🔋',
-        description: 'Fast charging USB-C power bank with LED display. Slim design, airplane safe.',
+        name: 'Medical Device Sterile Blister Tray',
+        category: 'blister',
+        emoji: '💊',
+        description: 'Medical-grade PETG blister trays with Tyvek lid. Suitable for sterile device packaging. ISO 13485 compliant production.',
         image: '',
-        tags: ['New Arrival', 'Custom Logo', 'CE/RoHS'],
-        moq: 'MOQ: 100 pcs'
+        tags: ['Medical Grade', 'ISO 13485', 'Sterile'],
+        moq: 'MOQ: 1000 pcs'
     },
     {
         id: 5,
-        name: 'Stainless Steel Water Bottle',
-        category: 'outdoors',
-        emoji: '🧴',
-        description: 'Double-wall vacuum insulated, 24hr cold / 12hr hot. Powder coated finish, leak-proof.',
+        name: 'Cosmetic Folding Blister Box',
+        category: 'blister',
+        emoji: '💄',
+        description: 'Crystal-clear folding blister boxes for cosmetics & beauty products. Premium finish with magnetic or snap closure. UV printing available.',
         image: '',
-        tags: ['Popular', 'Custom Print', 'BPA-Free'],
-        moq: 'MOQ: 200 pcs'
+        tags: ['Premium Look', 'UV Print', 'Magnetic Close'],
+        moq: 'MOQ: 500 pcs'
     },
     {
         id: 6,
-        name: 'Smart LED Desk Lamp',
-        category: 'electronics',
-        emoji: '💡',
-        description: 'Touch control, 5 color modes, USB charging port. Eye-care technology for reading & work.',
+        name: 'Industrial Parts Blister Tray',
+        category: 'blister',
+        emoji: '⚙️',
+        description: 'Thick-gauge PVC/PETG trays for automotive & industrial components. Stackable, durable, reusable. Custom 3D design within 48 hours.',
         image: '',
-        tags: ['Trending', 'OEM Available', 'CE/UKCA'],
-        moq: 'MOQ: 150 pcs'
+        tags: ['Heavy Gauge', '3D Design', 'Reusable'],
+        moq: 'MOQ: 300 pcs'
     }
 ];
 

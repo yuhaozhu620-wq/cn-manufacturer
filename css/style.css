@@ -422,6 +422,7 @@ ul {
 .product-placeholder-bg.electronics { background: linear-gradient(135deg, #1e40af, #3b82f6); }
 .product-placeholder-bg.kitchen   { background: linear-gradient(135deg, #b45309, #f59e0b); }
 .product-placeholder-bg.outdoors  { background: linear-gradient(135deg, #166534, #22c55e); }
+.product-placeholder-bg.blister   { background: linear-gradient(135deg, #0e7490, #06b6d4); }
 .product-placeholder-bg.default-ph { background: linear-gradient(135deg, #6d28d9, #8b5cf6); }
 
 /* ---------- Product Grid ---------- */
