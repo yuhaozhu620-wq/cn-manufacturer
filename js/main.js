@@ -176,7 +176,7 @@ if (contactForm) {
         }
 
         // ========== Send to WeChat via Server酱 ==========
-        const sendKey = 'SCT380660TqPwoD1Zpe0XioMic1zbrwn1E';
+        const sendKey = 'SCT380660TcC6LFLTQVRfaJdS3BTFC5Ybi';
 
         // Format a nice message
         const title = `[新询盘] ${formData.name} - ${formData.product || 'General Inquiry'}`;
