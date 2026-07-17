@@ -1,5 +1,5 @@
 /* ============================================
-   YourCompany - Main JavaScript
+   Bosun Industrial - Main JavaScript
    Product Data, Interactions, Form Handling
    ============================================ */
 
