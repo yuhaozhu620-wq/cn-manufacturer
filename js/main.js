@@ -10,63 +10,63 @@
 const products = [
     {
         id: 1,
-        name: 'Custom Electronics Blister Tray',
+        name: 'Transparent PVC Blister Tray for Electronics',
         category: 'blister',
         emoji: '📱',
-        description: 'Precision-formed PVC/PET blister trays for electronics packaging. Anti-static options available. Custom design with your exact specifications.',
-        image: '',
-        tags: ['Anti-Static', 'Custom Mold', 'CE/RoHS'],
+        description: 'Clear PVC blister trays for electronic components packaging. Anti-static treatment keeps your parts safe. 0.2~10mm thickness range, custom mold available within 7 days.',
+        image: 'images/products/product-1.webp',
+        tags: ['Anti-Static', 'Custom Mold', '0.2-10mm'],
         moq: 'MOQ: 500 pcs'
     },
     {
         id: 2,
-        name: 'Food-Grade Clear Blister Box',
+        name: 'Heavy-Duty Industrial Blister Tray',
         category: 'blister',
-        emoji: '🍓',
-        description: 'PET food-safe blister containers for fruits, baked goods & fresh produce. Perfect clarity, stackable design, tamper-evident sealing.',
-        image: '',
-        tags: ['FDA Approved', 'Food Grade', 'Custom Size'],
-        moq: 'MOQ: 1000 pcs'
+        emoji: '⚙️',
+        description: 'Thick-gauge PVC trays for automotive & industrial parts. Stackable design saves warehouse space. Daily output 1,000,000 pcs, fast delivery.',
+        image: 'images/products/product-2.webp',
+        tags: ['Heavy Gauge', 'Stackable', 'Bulk Order'],
+        moq: 'MOQ: 500 pcs'
     },
     {
         id: 3,
-        name: 'Hardware & Tool Blister Pack',
+        name: 'Custom Clear Blister Packaging Tray',
         category: 'blister',
-        emoji: '🔧',
-        description: 'Heavy-duty PVC blister packs for hardware tools, screws & fittings. Strong card backing, retail-ready with euro slot hang hole.',
-        image: '',
-        tags: ['Retail Ready', 'Heavy Duty', 'Custom Print'],
-        moq: 'MOQ: 500 pcs'
+        emoji: '📦',
+        description: 'Custom-designed clear blister trays for any product. Send us your drawings or samples — we match exact specs. PVC & PET materials available.',
+        image: 'images/products/product-3.webp',
+        tags: ['Custom Design', 'PVC/PET', 'Fast Sample'],
+        moq: 'MOQ: 300 pcs'
     },
     {
         id: 4,
-        name: 'Medical Device Sterile Blister Tray',
+        name: 'Anti-Static Electronics Blister Tray',
         category: 'blister',
-        emoji: '💊',
-        description: 'Medical-grade PETG blister trays with Tyvek lid. Suitable for sterile device packaging. ISO 13485 compliant production.',
-        image: '',
-        tags: ['Medical Grade', 'ISO 13485', 'Sterile'],
-        moq: 'MOQ: 1000 pcs'
-    },
-    {
-        id: 5,
-        name: 'Cosmetic Folding Blister Box',
-        category: 'blister',
-        emoji: '💄',
-        description: 'Crystal-clear folding blister boxes for cosmetics & beauty products. Premium finish with magnetic or snap closure. UV printing available.',
-        image: '',
-        tags: ['Premium Look', 'UV Print', 'Magnetic Close'],
+        emoji: '🔌',
+        description: 'ESD-safe blister trays with anti-static coating. Perfect for circuit boards, connectors & sensitive electronics. Permanent or temporary anti-static.',
+        image: 'images/products/product-4.webp',
+        tags: ['ESD Safe', 'Electronics', 'Permanent AS'],
         moq: 'MOQ: 500 pcs'
     },
     {
-        id: 6,
-        name: 'Industrial Parts Blister Tray',
+        id: 5,
+        name: 'Retail-Ready Blister Pack with Card Backing',
         category: 'blister',
-        emoji: '⚙️',
-        description: 'Thick-gauge PVC/PETG trays for automotive & industrial components. Stackable, durable, reusable. Custom 3D design within 48 hours.',
+        emoji: '🏪',
+        description: 'PVC blister packs heat-sealed to printed card backing. Euro slot hang hole, barcode ready. Perfect for retail shelves & peg hooks.',
+        image: 'images/products/product-5.webp',
+        tags: ['Retail Ready', 'Card Backing', 'Heat Seal'],
+        moq: 'MOQ: 1000 pcs'
+    },
+    {
+        id: 6,
+        name: 'Food & Medical Grade PET Blister Tray',
+        category: 'blister',
+        emoji: '🍱',
+        description: 'PET transparent blister trays for food containers & medical device packaging. FDA food-safe, sterilizable. Tamper-evident sealing option.',
         image: '',
-        tags: ['Heavy Gauge', '3D Design', 'Reusable'],
-        moq: 'MOQ: 300 pcs'
+        tags: ['Food Grade', 'PET Material', 'FDA'],
+        moq: 'MOQ: 1000 pcs'
     }
 ];
 
