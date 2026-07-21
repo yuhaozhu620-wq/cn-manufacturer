@@ -417,9 +417,23 @@ function updateHeaderShadow() {
     }
 }
 
+// ========== FAQ TOGGLE ==========
+function toggleFAQ(el) {
+    const item = el.parentElement;
+    const allItems = document.querySelectorAll('.faq-item');
+    allItems.forEach(i => { if (i !== item) i.classList.remove('active'); });
+    item.classList.toggle('active');
+}
+
+// ========== PRODUCT TAB SWITCH ==========
+function setActiveTab(btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+}
+
 // ========== ACTIVE NAV LINK ==========
 function updateActiveNav() {
-    const sections = ['home', 'products', 'about', 'why-us', 'contact'];
+    const sections = ['home', 'products', 'about', 'process', 'why-us', 'contact'];
     const navLinks = document.querySelectorAll('.nav-list1 > li');
 
     let current = 'home';
@@ -494,3 +508,5 @@ document.addEventListener('DOMContentLoaded', function() {
 window.products = products;
 window.inquireProduct = inquireProduct;
 window.renderProducts = renderProducts;
+window.toggleFAQ = toggleFAQ;
+window.setActiveTab = setActiveTab;

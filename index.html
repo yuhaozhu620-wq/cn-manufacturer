@@ -23,24 +23,21 @@
             </a>
         </div>
         <div class="right-content">
-            <!-- Search -->
             <div class="search-box">
                 <button type="button" id="searchBtn" aria-label="Search"><i class="fas fa-search"></i></button>
             </div>
-            <!-- Navigation -->
             <div class="nav" id="navMenu">
                 <ul class="nav-list1 clearfix">
                     <li class="active"><a href="#home">Home</a></li>
-                    <li>
-                        <a href="#products">Products</a>
+                    <li><a href="#products">Products</a>
                         <ul class="nav-list2">
-                            <li><a href="#products" data-filter="all">All Products</a></li>
-                            <li><a href="#products" data-filter="blister">PVC Blister Trays</a></li>
-                            <li><a href="#products" data-filter="custom">Custom Orders</a></li>
+                            <li><a href="#products">All Products</a></li>
+                            <li><a href="#products">PVC Blister Trays</a></li>
+                            <li><a href="#products">Custom Orders</a></li>
                         </ul>
                     </li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#why-us">Why Us</a></li>
+                    <li><a href="#process">Process</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -60,37 +57,40 @@
     </form>
 </div>
 
-<!-- ==================== Banner / Hero ==================== -->
+<!-- ==================== Banner ==================== -->
 <div class="banner" id="home">
     <div class="swiper-container" id="heroSwiper">
         <div class="swiper-wrapper">
-            <!-- Slide 1 -->
             <div class="swiper-slide">
                 <div class="slide-inner banner-placeholder">
                     <div class="slide-content">
+                        <span class="hero-badge">China Factory • Since 2014</span>
                         <h2>Professional PVC Blister<br>Packaging Manufacturer</h2>
-                        <p>Factory Direct Price • Custom Mold in 7 Days • Global Shipping</p>
-                        <a href="#products" class="btn">View Products</a>
+                        <p>Custom Mold in 7 Days • 1M+ Daily Output • Global Shipping to 50+ Countries</p>
+                        <a href="#products" class="btn">Explore Products <i class="fas fa-arrow-right"></i></a>
+                        <a href="#contact" class="btn btn-outline-white">Get Quote <i class="fas fa-comment"></i></a>
                     </div>
                 </div>
             </div>
-            <!-- Slide 2 -->
             <div class="swiper-slide">
-                <div class="slide-inner banner-placeholder" style="background: linear-gradient(135deg, #941520 0%, #b71c1c 50%, #7f1018 100%);">
+                <div class="slide-inner banner-placeholder" style="background: linear-gradient(135deg, #941520 0%, #b71c1c 40%, #7f1018 100%);">
                     <div class="slide-content">
-                        <h2>OEM & ODM<br>Custom Solutions</h2>
-                        <p>Send your drawings or samples — we match exact specs</p>
-                        <a href="#contact" class="btn">Get Quote</a>
+                        <span class="hero-badge">OEM & ODM</span>
+                        <h2>Custom Blister Packaging<br>Tailored to Your Needs</h2>
+                        <p>Send drawings or samples — we match exact specs. PVC · PET · Anti-Static · Food Grade</p>
+                        <a href="#contact" class="btn">Request Quote <i class="fas fa-paper-plane"></i></a>
+                        <a href="#process" class="btn btn-outline-white">Our Process <i class="fas fa-cog"></i></a>
                     </div>
                 </div>
             </div>
-            <!-- Slide 3 -->
             <div class="swiper-slide">
-                <div class="slide-inner banner-placeholder" style="background: linear-gradient(135deg, #1a3a5c 0%, #2c5f8a 50%, #1a3a5c 100%);">
+                <div class="slide-inner banner-placeholder" style="background: linear-gradient(135deg, #0d3b1e 0%, #166534 40%, #0d3b1e 100%);">
                     <div class="slide-content">
-                        <h2>1,000,000 pcs Daily<br>Production Capacity</h2>
-                        <p>ISO 9001 Certified • 20,000m² Facility • 200+ Workers</p>
-                        <a href="#contact" class="btn">Contact Us</a>
+                        <span class="hero-badge">Quality Certified</span>
+                        <h2>ISO 9001 • CE • RoHS<br>FDA Compliant</h2>
+                        <p>20,000m² Facility • 200+ Skilled Workers • Strict QC Every Order</p>
+                        <a href="#about" class="btn">About Us <i class="fas fa-building"></i></a>
+                        <a href="#contact" class="btn btn-outline-white">Contact Now <i class="fas fa-phone"></i></a>
                     </div>
                 </div>
             </div>
@@ -101,50 +101,53 @@
     </div>
 </div>
 
+<!-- ==================== Trust Strip ==================== -->
+<div class="trust-strip">
+    <div class="container">
+        <div class="trust-items">
+            <div class="trust-item"><i class="fas fa-medal"></i> ISO 9001:2015</div>
+            <div class="trust-item"><i class="fas fa-shield-alt"></i> CE / RoHS / FDA</div>
+            <div class="trust-item"><i class="fas fa-truck-fast"></i> Global Shipping</div>
+            <div class="trust-item"><i class="fas fa-cube"></i> Low MOQ 300 pcs</div>
+            <div class="trust-item"><i class="fas fa-clock"></i> 7-Day Sample</div>
+            <div class="trust-item"><i class="fas fa-headset"></i> 24/7 Support</div>
+        </div>
+    </div>
+</div>
+
 <!-- ==================== Main Products ==================== -->
 <div class="index-main-product space" id="products">
     <div class="container">
         <div class="common-title wow fadeInDown">
+            <span class="section-tag">Our Products</span>
             <h2>main <strong>products</strong></h2>
+            <p class="section-subtitle">Click any product to send an inquiry directly. Custom sizes & materials available.</p>
         </div>
-        <ul class="main-list row" id="productGrid">
-            <!-- Rendered by JS -->
-        </ul>
+        <!-- Category tabs -->
+        <div class="product-tabs wow fadeInUp">
+            <button class="tab-btn active" onclick="renderProducts('all');setActiveTab(this)">All</button>
+            <button class="tab-btn" onclick="renderProducts('blister');setActiveTab(this)">PVC Blister Trays</button>
+            <button class="tab-btn" onclick="renderProducts('blister');setActiveTab(this)">Anti-Static Series</button>
+            <button class="tab-btn" onclick="renderProducts('blister');setActiveTab(this)">Food & Medical Grade</button>
+        </div>
+        <ul class="main-list row" id="productGrid"><!-- JS render --></ul>
         <div class="text-center wow fadeInUp">
-            <a class="more-btn" href="#contact">Inquire Now</a>
+            <p class="products-note">💡 <strong>Don't see what you need?</strong> We do custom manufacturing. <a href="#contact">Send us your specs →</a></p>
+            <a class="more-btn" href="#contact">Inquire Now <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 </div>
 
 <!-- ==================== Stats Counter ==================== -->
-<div class="index-video lazy" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1920 500%22><rect fill=%22%2313185a%22 width=%221920%22 height=%22500%22/></svg>');">
+<div class="index-video lazy" style="background: linear-gradient(135deg, #13185a 0%, #0f1440 50%, #1a1f6e 100%);">
     <div class="container">
         <a class="video-box wow zoomIn" href="javascript:;" id="videoPlayBtn" title="Watch our factory video"></a>
+        <p class="video-label wow fadeInUp">Watch Our Factory Tour</p>
         <ul class="num wow fadeInUp">
-            <li>
-                <div class="item">
-                    <h6 class="counter" data-target="12">0</h6>
-                    <p><sup>+</sup><sub>Years Experience</sub></p>
-                </div>
-            </li>
-            <li>
-                <div class="item">
-                    <h6 class="counter" data-target="2014">0</h6>
-                    <p><sup>Year</sup><sub>Founded in</sub></p>
-                </div>
-            </li>
-            <li>
-                <div class="item">
-                    <h6 class="counter" data-target="50">0</h6>
-                    <p><sup>+</sup><sub>Countries Served</sub></p>
-                </div>
-            </li>
-            <li>
-                <div class="item">
-                    <h6 class="counter" data-target="500">0</h6>
-                    <p><sup>+</sup><sub>Happy Clients</sub></p>
-                </div>
-            </li>
+            <li><div class="item"><h6 class="counter" data-target="12">0</h6><p><sup>+</sup><sub>Years Experience</sub></p></div></li>
+            <li><div class="item"><h6 class="counter" data-target="2014">0</h6><p><sup>Year</sup><sub>Founded in</sub></p></div></li>
+            <li><div class="item"><h6 class="counter" data-target="50">0</h6><p><sup>+</sup><sub>Countries Served</sub></p></div></li>
+            <li><div class="item"><h6 class="counter" data-target="588">0</h6><p><sup>+</sup><sub>Happy Clients</sub></p></div></li>
         </ul>
     </div>
 </div>
@@ -155,66 +158,160 @@
         <div class="about-grid">
             <div class="about-image wow fadeInLeft">
                 <div class="img-box">
-                    <div class="img-placeholder team-bg">
-                        <div class="placeholder-icon">🤝</div>
-                        <span>Your Trusted Partner Since 2014</span>
+                    <div class="img-placeholder factory-bg">
+                        <div class="placeholder-icon">🏭</div>
+                        <span>20,000m² Factory • Guangdong, China</span>
                     </div>
                 </div>
             </div>
             <div class="about-text wow fadeInRight">
-                <span class="section-tag">About Us</span>
-                <h2>Your Reliable Partner Since 2014</h2>
-                <p>Bosun Industrial Import & Export Co., Ltd is a professional manufacturer based in <strong>Guangdong, China</strong>, specializing in high-quality PVC blister packaging trays for the global market.</p>
-                <p>With over a decade of export experience, we've built lasting relationships with importers, distributors, and retailers across North America, Europe, the Middle East, and Southeast Asia.</p>
+                <span class="section-tag">About Bosun Industrial</span>
+                <h2>Your Trusted Blister Packaging Partner Since 2014</h2>
+                <p>Based in <strong>Guangdong, China</strong> — the heart of global manufacturing — Bosun Industrial Import & Export Co., Ltd specializes in high-quality PVC and PET blister packaging trays for electronics, automotive, food, medical, and retail industries.</p>
+                <p>From a small workshop to a <strong>20,000m² modern facility with 200+ skilled workers</strong>, we now serve 500+ clients across 50+ countries. Every order — whether 300 pcs trial or 1,000,000 pcs bulk — gets the same rigorous QC treatment.</p>
                 <div class="about-highlights">
                     <div><i class="fas fa-check-circle"></i> 20,000m² Factory Facility</div>
                     <div><i class="fas fa-check-circle"></i> 200+ Skilled Workers</div>
-                    <div><i class="fas fa-check-circle"></i> ISO 9001 Certified</div>
-                    <div><i class="fas fa-check-circle"></i> CE, RoHS, FDA Compliant</div>
-                    <div><i class="fas fa-check-circle"></i> 1M+ pcs Daily Output</div>
-                    <div><i class="fas fa-check-circle"></i> 7-Day Custom Mold</div>
+                    <div><i class="fas fa-check-circle"></i> ISO 9001:2015 Certified</div>
+                    <div><i class="fas fa-check-circle"></i> CE · RoHS · FDA Compliant</div>
+                    <div><i class="fas fa-check-circle"></i> 1,000,000+ pcs Daily Output</div>
+                    <div><i class="fas fa-check-circle"></i> 7-Day Custom Mold Turnaround</div>
+                    <div><i class="fas fa-check-circle"></i> 0.2mm–10mm Thickness Range</div>
+                    <div><i class="fas fa-check-circle"></i> PVC · PET · PP · HIPS Materials</div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- ==================== Why Us / Features ==================== -->
+<!-- ==================== Manufacturing Process ==================== -->
+<div class="index-process space" id="process">
+    <div class="container">
+        <div class="common-title wow fadeInDown">
+            <span class="section-tag">How We Work</span>
+            <h2>manufacturing <strong>process</strong></h2>
+            <p class="section-subtitle">From your idea to final delivery — transparent and efficient every step of the way.</p>
+        </div>
+        <div class="process-steps">
+            <div class="process-step wow fadeInUp">
+                <div class="step-number">01</div>
+                <div class="step-icon"><i class="fas fa-comments"></i></div>
+                <h3>Consultation</h3>
+                <p>Share your requirements, drawings, or samples. We provide technical advice & quotation within 24 hours.</p>
+            </div>
+            <div class="process-step wow fadeInUp" data-wow-delay="0.15s">
+                <div class="step-number">02</div>
+                <div class="step-icon"><i class="fas fa-pen-ruler"></i></div>
+                <h3>Design & Mold Making</h3>
+                <p>Our engineers design the mold in CAD. Custom aluminum/copper molds ready in 5–7 working days.</p>
+            </div>
+            <div class="process-step wow fadeInUp" data-wow-delay="0.3s">
+                <div class="step-number">03</div>
+                <div class="step-icon"><i class="fas fa-flask"></i></div>
+                <h3>Sampling & Approval</h3>
+                <p>We produce free samples for your approval. Iterate until you're 100% satisfied with fit & finish.</p>
+            </div>
+            <div class="process-step wow fadeInUp" data-wow-delay="0.45s">
+                <div class="step-number">04</div>
+                <div class="step-icon"><i class="fas fa-industry"></i></div>
+                <h3>Mass Production</h3>
+                <p>Full-scale production with inline QC inspection. 1M+ pcs/day capacity ensures on-time delivery.</p>
+            </div>
+            <div class="process-step wow fadeInUp" data-wow-delay="0.6s">
+                <div class="step-number">05</div>
+                <div class="step-icon"><i class="fas fa-check-double"></i></div>
+                <h3>QC & Packaging</h3>
+                <p>Random sampling inspection per AQL standard. Bulk packed or retail-ready with your branding.</p>
+            </div>
+            <div class="process-step wow fadeInUp" data-wow-delay="0.75s">
+                <div class="step-number">06</div>
+                <div class="step-icon"><i class="fas fa-ship"></i></div>
+                <h3>Shipping & After-Sales</h3>
+                <p>Sea/Air/Express — we handle the best logistics for your market. 12-month quality warranty included.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== Why Us ==================== -->
 <div class="index-features space" id="why-us">
     <div class="container">
         <div class="common-title wow fadeInDown">
-            <h2>why <strong>choose us</strong></h2>
+            <span class="section-tag">Why Choose Us</span>
+            <h2>what makes us <strong>different</strong></h2>
         </div>
         <div class="features-grid">
             <div class="feature-card wow fadeInUp">
-                <div class="feature-icon">🏭</div>
+                <div class="feature-icon"><i class="fas fa-tags"></i></div>
                 <h3>Factory Direct Pricing</h3>
-                <p>No middlemen. You get manufacturer prices that maximize your profit margin.</p>
+                <p>Cut out middlemen — buy straight from the source. Save 15–30% compared to trading companies.</p>
             </div>
             <div class="feature-card wow fadeInUp">
-                <div class="feature-icon">✅</div>
-                <h3>Quality Guaranteed</h3>
-                <p>ISO 9001 certified. Every order goes through strict QC before shipping.</p>
+                <div class="feature-icon"><i class="fas fa-microscope"></i></div>
+                <h3>Rigorous Quality Control</h3>
+                <p>Every batch tested for dimensions, clarity, strength & anti-static properties before release.</p>
             </div>
             <div class="feature-card wow fadeInUp">
-                <div class="feature-icon">🎨</div>
-                <h3>OEM & ODM Service</h3>
-                <p>Customize any product with your logo, packaging, and specifications.</p>
+                <div class="feature-icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>Full Customization</h3>
+                <p>Custom shapes, thickness, colors, anti-static coating, printing & card backing — your design, our execution.</p>
             </div>
             <div class="feature-card wow fadeInUp">
-                <div class="feature-icon">🚀</div>
-                <h3>Fast Delivery</h3>
-                <p>Strategic logistics partnerships ensure on-time delivery worldwide.</p>
+                <div class="feature-icon"><i class="fas fa-truck-fast"></i></div>
+                <h3>On-Time Delivery</h3>
+                <p>98.5% on-time delivery rate. We plan backward from your deadline — not our convenience.</p>
             </div>
             <div class="feature-card wow fadeInUp">
-                <div class="feature-icon">💬</div>
-                <h3>24/7 Support</h3>
-                <p>Dedicated account manager. Response within 12 hours, guaranteed.</p>
+                <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+                <h3>Eco-Friendly Options</h3>
+                <p>Recyclable PET & RPET materials available. Biodegradable options coming soon.</p>
             </div>
             <div class="feature-card wow fadeInUp">
-                <div class="feature-icon">📦</div>
-                <h3>Low MOQ</h3>
-                <p>Start with small trial orders. We grow with your business.</p>
+                <div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                <h3>Small Orders Welcome</h3>
+                <p>MOQ starting from just 300 pcs. We grow with startups — unlike factories that demand 10,000+ MOQ.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== Industries Served ==================== -->
+<div class="index-industries space">
+    <div class="container">
+        <div class="common-title wow fadeInDown">
+            <span class="section-tag">Industries</span>
+            <h2>who we <strong>serve</strong></h2>
+        </div>
+        <div class="industries-grid">
+            <div class="industry-card wow fadeInUp">
+                <div class="industry-img"><i class="fas fa-microchip"></i></div>
+                <h4>Electronics</h4>
+                <p>Anti-static trays for PCBs, connectors, chips & components</p>
+            </div>
+            <div class="industry-card wow fadeInUp">
+                <div class="industry-img"><i class="fas fa-car"></i></div>
+                <h4>Automotive</h4>
+                <p>Heavy-gauge trays for auto parts, sensors & hardware</p>
+            </div>
+            <div class="industry-card wow fadeInUp">
+                <div class="industry-img"><i class="fas fa-utensils"></i></div>
+                <h4>Food Packaging</h4>
+                <p>FDA food-safe PET trays for containers & takeaway</p>
+            </div>
+            <div class="industry-card wow fadeInUp">
+                <div class="industry-img"><i class="fas fa-stethoscope"></i></div>
+                <h4>Medical Devices</h4>
+                <p>Sterilizable trays for surgical tools & medical kits</p>
+            </div>
+            <div class="industry-card wow fadeInUp">
+                <div class="industry-img"><i class="fas fa-store"></i></div>
+                <h4>Retail</h4>
+                <p>Blister packs with card backing for retail shelves</p>
+            </div>
+            <div class="industry-card wow fadeInUp">
+                <div class="industry-img"><i class="fas fa-hard-hat"></i></div>
+                <h4>Industrial Parts</h4>
+                <p>Stackable trays for tools, hardware & spare parts</p>
             </div>
         </div>
     </div>
@@ -224,60 +321,134 @@
 <div class="index-new space">
     <div class="container">
         <div class="common-title wow fadeInDown">
-            <h2>client <strong>testimonials</strong></h2>
+            <span class="section-tag">Testimonials</span>
+            <h2>what our <strong>clients say</strong></h2>
         </div>
         <div class="new-slick wow fadeInUp" id="testimonialSlider">
             <div class="item">
-                <div class="pic">
-                    <div class="img-box" style="background: linear-gradient(135deg, #13185a, #1e2580);">
-                        <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2.5rem;">⭐</span>
-                    </div>
-                </div>
+                <div class="pic"><div class="img-box testimonial-bg-1"><span class="testimonial-avatar">JK</span></div></div>
                 <div class="intro">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <h6>Great quality and competitive pricing!</h6>
-                    <div class="txt">"We've been working together for 3 years and every order has been smooth. Their blister trays are consistently high quality."</div>
-                    <div class="date">James K. - Importer, United States</div>
+                    <h6>"Quality has been consistently excellent"</h6>
+                    <div class="txt">We import 200,000 blister trays monthly from Bosun. In 3 years, zero quality complaints from our end customers. Communication is fast and professional.</div>
+                    <div class="date"><strong>James K.</strong> · Electronics Importer, USA</div>
                 </div>
             </div>
             <div class="item">
-                <div class="pic">
-                    <div class="img-box" style="background: linear-gradient(135deg, #941520, #b71c1c);">
-                        <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2.5rem;">⭐</span>
-                    </div>
-                </div>
+                <div class="pic"><div class="img-box testimonial-bg-2"><span class="testimonial-avatar">MS</span></div></div>
                 <div class="intro">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <h6>Excellent OEM service!</h6>
-                    <div class="txt">"They helped us customize our entire blister packaging line with professional results. Fast sample turnaround."</div>
-                    <div class="date">Maria S. - Distributor, Germany</div>
+                    <h6>"They saved our product launch"</h6>
+                    <div class="txt">Our original supplier delayed 3 weeks. Bosun made the custom mold in 5 days and delivered 10,000 pcs in 2 weeks. Incredible turnaround.</div>
+                    <div class="date"><strong>Maria S.</strong> · Retail Brand, Germany</div>
                 </div>
             </div>
             <div class="item">
-                <div class="pic">
-                    <div class="img-box" style="background: linear-gradient(135deg, #1a3a5c, #2c5f8a);">
-                        <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2.5rem;">⭐</span>
-                    </div>
-                </div>
+                <div class="pic"><div class="img-box testimonial-bg-3"><span class="testimonial-avatar">AR</span></div></div>
                 <div class="intro">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <h6>Fast response and honest communication!</h6>
-                    <div class="txt">"Products arrived exactly as promised. Highly recommend Bosun for any blister packaging needs."</div>
-                    <div class="date">Ahmed R. - Wholesaler, UAE</div>
+                    <h6>"Best supplier we've found in China"</h6>
+                    <div class="txt">Visited the factory in Guangdong — very impressive. Clean, organized, professional. Been ordering quarterly for 2 years, never a single issue.</div>
+                    <div class="date"><strong>Ahmed R.</strong> · Wholesaler, UAE</div>
                 </div>
             </div>
             <div class="item">
-                <div class="pic">
-                    <div class="img-box" style="background: linear-gradient(135deg, #2c3e50, #34495e);">
-                        <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2.5rem;">⭐</span>
-                    </div>
-                </div>
+                <div class="pic"><div class="img-box testimonial-bg-4"><span class="testimonial-avatar">LT</span></div></div>
                 <div class="intro">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <h6>Low MOQ is perfect for startups!</h6>
-                    <div class="txt">"We started with just 500 pcs trial order. Now we order 50,000 monthly. Great partner for growing businesses."</div>
-                    <div class="date">Lisa T. - E-commerce Brand, Canada</div>
+                    <h6>"Perfect for small businesses like ours"</h6>
+                    <div class="txt">Started with just 500 pcs as a trial. Now ordering 50,000 monthly. They actually care about small customers. Highly recommend for startups.</div>
+                    <div class="date"><strong>Lisa T.</strong> · E-commerce Brand, Canada</div>
                 </div>
+            </div>
+            <div class="item">
+                <div class="pic"><div class="img-box testimonial-bg-5"><span class="testimonial-avatar">PN</span></div></div>
+                <div class="intro">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <h6>"Professional from quote to delivery"</h6>
+                    <div class="txt">Quoted within 4 hours. Samples shipped free of charge. Production updates every 2 days. This is how all Chinese suppliers should operate.</div>
+                    <div class="date"><strong>Pierre N.</strong> · Distributor, France</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== FAQ ==================== -->
+<div class="index-faq space">
+    <div class="container">
+        <div class="common-title wow fadeInDown">
+            <span class="section-tag">FAQ</span>
+            <h2>frequently asked <strong>questions</strong></h2>
+        </div>
+        <div class="faq-list wow fadeInUp">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What's your minimum order quantity (MOQ)?</span>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our standard MOQ is 300–500 pcs depending on the product complexity. For custom molds, MOQ starts at 1,000 pcs. We're happy to accommodate trial orders for new clients — just ask!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How long does custom mold making take?</span>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Simple molds: 3–5 working days. Complex multi-cavity molds: 7–10 working days. Rush service available for urgent projects — contact us for availability.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What materials do you work with?</span>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>PVC (clear, colored, anti-static), PET (food-grade, recyclable), PP, HIPS, and more. Thickness range: 0.2mm to 10mm. Tell us your application and we'll recommend the best material.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you provide free samples?</span>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We provide free existing samples. Custom mold samples require a small mold fee (refunded on first bulk order). Customers cover shipping cost.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What shipping methods do you offer?</span>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Sea freight (most economical for bulk), air freight (7–10 days), and express courier DHL/FedEx/UPS (3–5 days). We can ship to your freight forwarder or arrange door-to-door delivery.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What payment terms do you accept?</span>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>T/T (bank transfer), L/C at sight, Western Union, and Alibaba Trade Assurance for first orders. Standard terms: 30% deposit, 70% balance before shipment or against B/L copy.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== CTA Section ==================== -->
+<div class="index-cta">
+    <div class="container">
+        <div class="cta-box wow zoomIn">
+            <h2>Ready to Start Your Blister Packaging Project?</h2>
+            <p>Send us your drawings or samples — we'll quote within 24 hours. Free consultation, no obligation.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn-cta-primary">Get Free Quote <i class="fas fa-arrow-right"></i></a>
+                <a href="https://wa.me/8613869846773" class="btn-cta-whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp Chat</a>
             </div>
         </div>
     </div>
@@ -287,74 +458,45 @@
 <div class="index-contact space" id="contact">
     <div class="container">
         <div class="common-title wow fadeInDown">
-            <h2>get in <strong>touch</strong></h2>
+            <span class="section-tag">Get In Touch</span>
+            <h2>contact <strong>us today</strong></h2>
+            <p class="section-subtitle">Fill the form or reach out directly. We reply within 12 hours — guaranteed.</p>
         </div>
         <div class="contact-grid">
-            <!-- Contact Form -->
             <div class="contact-form-wrap wow fadeInLeft">
                 <form id="contactForm">
                     <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Your Name *</label>
-                            <input type="text" id="name" placeholder="John Smith" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">Company Name</label>
-                            <input type="text" id="company" placeholder="ABC Trading Co.">
-                        </div>
+                        <div class="form-group"><label for="name">Your Name *</label><input type="text" id="name" placeholder="John Smith" required></div>
+                        <div class="form-group"><label for="company">Company Name</label><input type="text" id="company" placeholder="ABC Trading Co."></div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" placeholder="john@example.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone / WhatsApp</label>
-                            <input type="text" id="phone" placeholder="+1 234 567 890">
-                        </div>
+                        <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" placeholder="john@example.com" required></div>
+                        <div class="form-group"><label for="phone">Phone / WhatsApp</label><input type="text" id="phone" placeholder="+1 234 567 890"></div>
                     </div>
-                    <div class="form-group">
-                        <label for="product">Product of Interest</label>
-                        <select id="product">
-                            <option value="">-- Select a Product --</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Your Message *</label>
-                        <textarea id="message" rows="4" placeholder="Tell us what products you're interested in, quantity, and any special requirements..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">
-                        <i class="fas fa-paper-plane"></i> Send Inquiry
-                    </button>
-                    <p class="form-note">🔒 Your information is secure. We'll never share it with third parties.</p>
+                    <div class="form-group"><label for="product">Product of Interest</label><select id="product"><option value="">-- Select a Product --</option></select></div>
+                    <div class="form-group"><label for="message">Your Message *</label><textarea id="message" rows="4" placeholder="Tell us what products you're interested in, quantity, and any special requirements..." required></textarea></div>
+                    <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send Inquiry</button>
+                    <p class="form-note">🔒 Your information is secure. We never share with third parties.</p>
                 </form>
             </div>
-            <!-- Contact Info Sidebar -->
             <div class="contact-sidebar wow fadeInRight">
                 <h3>Contact Directly</h3>
                 <p>Prefer to reach out directly? Choose your preferred method below.</p>
                 <div class="contact-methods">
                     <a href="https://wa.me/8613869846773" class="contact-method" target="_blank" rel="noopener">
                         <i class="fab fa-whatsapp"></i>
-                        <div>
-                            <strong>WhatsApp</strong>
-                            <span>+86 13869846773</span>
-                        </div>
+                        <div><strong>WhatsApp</strong><span>+86 13869846773</span></div>
                     </a>
                     <a href="mailto:13869846773@163.com" class="contact-method">
                         <i class="fas fa-envelope"></i>
-                        <div>
-                            <strong>Email</strong>
-                            <span>13869846773@163.com</span>
-                        </div>
+                        <div><strong>Email</strong><span>13869846773@163.com</span></div>
                     </a>
-                    <div class="contact-method">
-                        <i class="fab fa-weixin"></i>
-                        <div>
-                            <strong>WeChat</strong>
-                            <span>Add: Your-WeChat-ID</span>
-                        </div>
-                    </div>
+                    <div class="contact-method"><i class="fab fa-weixin"></i><div><strong>WeChat</strong><span>13869846773</span></div></div>
+                </div>
+                <div class="contact-hours">
+                    <h4><i class="far fa-clock"></i> Business Hours</h4>
+                    <p>Monday – Saturday: 8:00 AM – 8:00 PM (GMT+8)</p>
+                    <p>Sunday: 10:00 AM – 6:00 PM (GMT+8)</p>
                 </div>
             </div>
         </div>
@@ -365,11 +507,9 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-content">
-            <!-- Mail Subscription -->
             <div class="footer-col">
-                <div class="title">
-                    <h2>mail subscription</h2>
-                </div>
+                <div class="title"><h2>mail subscription</h2></div>
+                <p style="margin-bottom:15px;">Get product updates, industry news & special offers.</p>
                 <div class="footer-subscribe">
                     <form id="subscribeForm">
                         <input type="email" placeholder="Enter your e-mail address:" required>
@@ -383,45 +523,33 @@
                     <li><a href="#" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a></li>
                 </ol>
             </div>
-            <!-- Products -->
             <div class="footer-col">
-                <div class="title">
-                    <h2>products</h2>
-                </div>
-                <div id="footerProductLinks">
-                    <!-- Rendered by JS -->
-                </div>
+                <div class="title"><h2>products</h2></div>
+                <div id="footerProductLinks"><!-- JS render --></div>
             </div>
-            <!-- Contact Us -->
             <div class="footer-col">
-                <div class="title">
-                    <h2>contact us</h2>
-                </div>
-                <p>
-                    <strong>Add：</strong>
-                    <span>Guangdong, China</span>
-                </p>
-                <p>
-                    <strong>E-mail：</strong>
-                    <span>
-                        <a href="mailto:13869846773@163.com" rel="noreferrer noopener">13869846773@163.com</a>
-                    </span>
-                </p>
-                <p>
-                    <strong>WhatsApp：</strong>
-                    <span>+86 13869846773</span>
-                </p>
+                <div class="title"><h2>quick links</h2></div>
+                <p><a href="#home">· Home</a></p>
+                <p><a href="#products">· Products</a></p>
+                <p><a href="#about">· About Us</a></p>
+                <p><a href="#process">· Manufacturing Process</a></p>
+                <p><a href="#contact">· Contact</a></p>
+            </div>
+            <div class="footer-col">
+                <div class="title"><h2>contact us</h2></div>
+                <p><strong>Add：</strong><span>Dongguan, Guangdong, China 523000</span></p>
+                <p><strong>E-mail：</strong><span><a href="mailto:13869846773@163.com">13869846773@163.com</a></span></p>
+                <p><strong>Tel：</strong><span>+86 13869846773</span></p>
+                <p><strong>WhatsApp：</strong><span>+86 13869846773</span></p>
             </div>
         </div>
         <div class="footer-copyright">
-            <p>
-                <span>Copyright &copy; 2026 Bosun Industrial Import &amp; Export Co., Ltd. All Rights Reserved.</span>
-            </p>
+            <p><span>Copyright &copy; 2026 Bosun Industrial Import &amp; Export Co., Ltd. All Rights Reserved.</span></p>
         </div>
     </div>
 </footer>
 
-<!-- ==================== Mobile Bottom Nav ==================== -->
+<!-- Mobile Bottom Nav -->
 <div class="footer-xsnav">
     <ul class="clearfix">
         <li><a href="mailto:13869846773@163.com"><i class="fas fa-envelope"></i> Email</a></li>
@@ -432,26 +560,15 @@
     </ul>
 </div>
 
-<!-- ==================== Aside Sidebar ==================== -->
+<!-- Aside Sidebar -->
 <div class="aside-online">
-    <a class="aside-item" href="https://wa.me/8613869846773" target="_blank" rel="noopener" title="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-        <div><p>+86 13869846773</p></div>
-    </a>
-    <div class="aside-item" title="WeChat">
-        <i class="fab fa-weixin"></i>
-        <div><p>Add on WeChat</p></div>
-    </div>
-    <a class="aside-item" href="mailto:13869846773@163.com" title="Email">
-        <i class="fas fa-envelope"></i>
-        <div><p>13869846773@163.com</p></div>
-    </a>
-    <a class="aside-item gotop-btn" href="#home" title="Back to Top">
-        <i class="fas fa-chevron-up"></i>
-    </a>
+    <a class="aside-item" href="https://wa.me/8613869846773" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i><div><p>+86 13869846773</p></div></a>
+    <div class="aside-item"><i class="fab fa-weixin"></i><div><p>WeChat: 13869846773</p></div></div>
+    <a class="aside-item" href="mailto:13869846773@163.com"><i class="fas fa-envelope"></i><div><p>13869846773@163.com</p></div></a>
+    <a class="aside-item gotop-btn" href="#home"><i class="fas fa-chevron-up"></i></a>
 </div>
 
-<!-- ==================== WhatsApp Float ==================== -->
+<!-- WhatsApp Float -->
 <a href="https://wa.me/8613869846773" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
 </a>
