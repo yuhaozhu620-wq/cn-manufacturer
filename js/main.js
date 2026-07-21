@@ -85,8 +85,8 @@ function renderProducts() {
         <div class="product-card" onclick="inquireProduct('${p.name}')">
             ${imageHTML}
             <div class="product-card-body">
-                <h3>${p.name}</h3>
-                <p>${p.description}</p>
+                <h3 data-editable="">${p.name}</h3>
+                <p data-editable="">${p.description}</p>
                 <div class="product-tags">
                     ${p.tags.map(t => `<span class="product-tag">${t}</span>`).join('')}
                 </div>
@@ -330,7 +330,160 @@ document.addEventListener('DOMContentLoaded', () => {
     updateHeaderShadow();
 });
 
+// ========== INLINE EDIT MODE ==========
+const EDIT_STORAGE_KEY = 'bosun_website_edits';
+let isEditing = false;
+
+// Load saved edits from localStorage
+function loadEdits() {
+    try {
+        const saved = localStorage.getItem(EDIT_STORAGE_KEY);
+        return saved ? JSON.parse(saved) : {};
+    } catch (e) { return {}; }
+}
+
+// Save edits to localStorage
+function saveEdits() {
+    const edits = {};
+    document.querySelectorAll('[data-editable]').forEach(el => {
+        const key = el.getAttribute('data-edit-key');
+        if (key) {
+            edits[key] = el.innerHTML;
+        }
+    });
+    localStorage.setItem(EDIT_STORAGE_KEY, JSON.stringify(edits));
+    showToast('✅ Content saved! Changes will persist in this browser.', 'success');
+}
+
+// Assign unique keys to editable elements
+function assignEditKeys() {
+    let index = 0;
+    document.querySelectorAll('[data-editable]').forEach(el => {
+        if (!el.getAttribute('data-edit-key')) {
+            el.setAttribute('data-edit-key', 'edit-' + (index++));
+        }
+    });
+}
+
+// Apply saved edits on page load
+function applySavedEdits() {
+    const edits = loadEdits();
+    if (Object.keys(edits).length === 0) return;
+    document.querySelectorAll('[data-editable]').forEach(el => {
+        const key = el.getAttribute('data-edit-key');
+        if (key && edits[key] !== undefined) {
+            el.innerHTML = edits[key];
+        }
+    });
+}
+
+// Toggle edit mode
+function toggleEditMode() {
+    isEditing = !isEditing;
+    const btn = document.getElementById('editToggleBtn');
+    const toolbar = document.getElementById('editToolbar');
+
+    if (isEditing) {
+        document.body.classList.add('editing-active');
+        if (btn) btn.classList.add('active');
+        if (toolbar) toolbar.classList.add('show');
+        assignEditKeys();
+        showToast('✏️ Edit mode ON — click any text to edit', 'success');
+    } else {
+        document.body.classList.remove('editing-active');
+        if (btn) btn.classList.remove('active');
+        if (toolbar) toolbar.classList.remove('show');
+        saveEditsToStorage();
+        showToast('🔒 Edit mode OFF — changes saved', 'success');
+    }
+}
+
+// Auto-save on each edit (debounced)
+let autoSaveTimer;
+function saveEditsToStorage() {
+    const edits = {};
+    document.querySelectorAll('[data-editable]').forEach(el => {
+        const key = el.getAttribute('data-edit-key');
+        if (key) edits[key] = el.innerHTML;
+    });
+    localStorage.setItem(EDIT_STORAGE_KEY, JSON.stringify(edits));
+}
+
+// Listen for changes on editable elements
+document.addEventListener('input', function(e) {
+    if (!isEditing) return;
+    const el = e.target.closest('[data-editable]');
+    if (!el) return;
+    clearTimeout(autoSaveTimer);
+    autoSaveTimer = setTimeout(saveEditsToStorage, 500);
+});
+
+// Export modified HTML file
+function exportHTML() {
+    // Temporarily exit edit mode for clean export
+    const wasEditing = isEditing;
+    if (wasEditing) {
+        document.body.classList.remove('editing-active');
+        const toolbar = document.getElementById('editToolbar');
+        if (toolbar) toolbar.classList.remove('show');
+    }
+
+    const clone = document.documentElement.outerHTML;
+    const blob = new Blob(['<!DOCTYPE html>\n' + clone], { type: 'text/html;charset=UTF-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'bosun-website-edited.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    // Restore edit mode
+    if (wasEditing) {
+        document.body.classList.add('editing-active');
+        const toolbar = document.getElementById('editToolbar');
+        if (toolbar) toolbar.classList.add('show');
+    }
+    showToast('📥 HTML file downloaded!', 'success');
+}
+
+// Reset all edits to original
+function resetEdits() {
+    if (!confirm('Reset ALL text back to original? This cannot be undone.')) return;
+    localStorage.removeItem(EDIT_STORAGE_KEY);
+    document.querySelectorAll('[data-editable]').forEach(el => {
+        el.innerHTML = el.getAttribute('data-original') || el.innerHTML;
+    });
+    // Reload to clean state
+    location.reload();
+}
+
+// Store original content before any edits
+function storeOriginals() {
+    document.querySelectorAll('[data-editable]').forEach(el => {
+        if (!el.getAttribute('data-original')) {
+            el.setAttribute('data-original', el.innerHTML);
+        }
+    });
+}
+
+// Initialize edit mode
+document.addEventListener('DOMContentLoaded', function() {
+    assignEditKeys();
+    storeOriginals();
+    applySavedEdits();
+    // Re-assign keys after applying edits (in case new elements were added by renderProducts)
+    setTimeout(() => {
+        assignEditKeys();
+        storeOriginals();
+    }, 100);
+});
+
 // ========== EXPORT FOR CONSOLE DEBUG ==========
 // You can type "products" in the browser console to see/edit product data
 window.products = products;
 window.inquireProduct = inquireProduct;
+window.toggleEditMode = toggleEditMode;
+window.exportHTML = exportHTML;
+window.resetEdits = resetEdits;

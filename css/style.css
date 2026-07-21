@@ -1396,3 +1396,116 @@ a.contact-method:hover {
         display: none;
     }
 }
+
+/* ========== Edit Mode ========== */
+/* Edit toggle button */
+.edit-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    width: 44px;
+    height: 44px;
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.edit-toggle-btn:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 15px rgba(37,99,235,0.2);
+}
+.edit-toggle-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+
+/* Edit toolbar */
+.edit-toolbar {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 75px;
+    z-index: 9999;
+    background: #1e293b;
+    color: #fff;
+    border-radius: 12px;
+    padding: 10px 15px;
+    gap: 10px;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    flex-wrap: wrap;
+}
+.edit-toolbar.show { display: flex; }
+.edit-toolbar-label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 5px;
+    white-space: nowrap;
+}
+.edit-tool-btn {
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+.edit-tool-btn:hover { background: rgba(255,255,255,0.25); }
+.edit-tool-reset { background: rgba(239,68,68,0.4); }
+.edit-tool-reset:hover { background: rgba(239,68,68,0.6); }
+.edit-tool-close { background: rgba(255,255,255,0.1); }
+
+/* Editable element highlight */
+.editing-active [data-editable] {
+    outline: 2px dashed rgba(37,99,235,0.4);
+    outline-offset: 3px;
+    border-radius: 4px;
+    cursor: text;
+    transition: outline 0.15s;
+}
+.editing-active [data-editable]:hover {
+    outline-color: rgba(37,99,235,0.8);
+    background: rgba(37,99,235,0.04);
+}
+.editing-active [data-editable]:focus {
+    outline: 2px solid var(--primary);
+    background: rgba(37,99,235,0.06);
+}
+
+/* Disable pointer events on links during edit */
+.editing-active a { pointer-events: none; }
+.editing-active button:not(.edit-toggle-btn):not(.edit-tool-btn) { pointer-events: none; }
+
+/* Edit mode body indicator */
+body.editing-active { padding-bottom: 60px; }
+
+@media (max-width: 768px) {
+    .edit-toggle-btn {
+        bottom: 80px;
+        left: 12px;
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+    .edit-toolbar {
+        bottom: 80px;
+        left: 60px;
+        right: 10px;
+        padding: 8px 10px;
+        gap: 5px;
+    }
+    .edit-tool-btn { padding: 6px 10px; font-size: 11px; }
+    .edit-toolbar-label { font-size: 11px; }
+}
