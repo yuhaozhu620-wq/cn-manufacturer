@@ -78,8 +78,8 @@ function renderProducts() {
     grid.innerHTML = products.map(p => {
         // Use real image if provided, otherwise show colored placeholder
         const imageHTML = p.image
-            ? `<img src="${p.image}" alt="${p.name}" class="product-card-image" loading="lazy">`
-            : `<div class="product-placeholder-bg ${p.category || 'default-ph'}">${p.emoji || '📦'}</div>`;
+            ? `<img src="${p.image}" alt="${p.name}" class="product-card-image" loading="lazy" data-editable-img="product-${p.id}">`
+            : `<div class="product-placeholder-bg ${p.category || 'default-ph'}" data-editable-img="product-${p.id}">${p.emoji || '📦'}</div>`;
 
         return `
         <div class="product-card" onclick="inquireProduct('${p.name}')">
@@ -377,6 +377,105 @@ function applySavedEdits() {
     });
 }
 
+// ========== IMAGE EDIT ==========
+const IMAGE_STORAGE_KEY = 'bosun_website_images';
+
+// Create hidden file input for image uploads
+function createImageInput() {
+    let input = document.getElementById('hiddenImageInput');
+    if (!input) {
+        input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'image/*';
+        input.id = 'hiddenImageInput';
+        input.style.display = 'none';
+        document.body.appendChild(input);
+    }
+    return input;
+}
+
+// Handle image click in edit mode
+let pendingImageTarget = null;
+document.addEventListener('click', function(e) {
+    if (!isEditing) return;
+    const target = e.target.closest('[data-editable-img]');
+    if (!target) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+    pendingImageTarget = target;
+    const input = createImageInput();
+    input.value = '';
+    input.click();
+});
+
+// Handle file selection
+document.addEventListener('change', function(e) {
+    if (e.target.id !== 'hiddenImageInput' || !pendingImageTarget) return;
+    const file = e.target.files[0];
+    if (!file) { pendingImageTarget = null; return; }
+
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+        const dataUrl = ev.target.result;
+        const target = pendingImageTarget;
+        const key = target.getAttribute('data-editable-img');
+
+        // Store in localStorage
+        saveImageEdit(key, dataUrl);
+
+        // Apply to DOM
+        applyImageToElement(target, dataUrl);
+        pendingImageTarget = null;
+        showToast('🖼️ Image updated!', 'success');
+    };
+    reader.readAsDataURL(file);
+});
+
+// Apply image data URL to an element
+function applyImageToElement(el, dataUrl) {
+    if (el.tagName === 'IMG') {
+        el.src = dataUrl;
+        el.style.objectFit = 'cover';
+    } else {
+        // It's a placeholder div - replace with img
+        const img = document.createElement('img');
+        img.src = dataUrl;
+        img.alt = '';
+        img.style.width = '100%';
+        img.style.height = '100%';
+        img.style.objectFit = 'cover';
+        img.style.borderRadius = 'inherit';
+        img.setAttribute('data-editable-img', el.getAttribute('data-editable-img'));
+        el.innerHTML = '';
+        el.appendChild(img);
+        el.classList.add('has-image');
+    }
+}
+
+// Save image edit
+function saveImageEdit(key, dataUrl) {
+    try {
+        const images = JSON.parse(localStorage.getItem(IMAGE_STORAGE_KEY) || '{}');
+        images[key] = dataUrl;
+        localStorage.setItem(IMAGE_STORAGE_KEY, JSON.stringify(images));
+    } catch (e) {
+        // localStorage might be full with large images
+        showToast('⚠️ Image too large for auto-save. Use Download HTML to save.', 'error');
+    }
+}
+
+// Load saved images
+function loadSavedImages() {
+    try {
+        const images = JSON.parse(localStorage.getItem(IMAGE_STORAGE_KEY) || '{}');
+        Object.entries(images).forEach(([key, dataUrl]) => {
+            const el = document.querySelector(`[data-editable-img="${key}"]`);
+            if (el) applyImageToElement(el, dataUrl);
+        });
+    } catch (e) {}
+}
+
 // Toggle edit mode
 function toggleEditMode() {
     isEditing = !isEditing;
@@ -388,7 +487,8 @@ function toggleEditMode() {
         if (btn) btn.classList.add('active');
         if (toolbar) toolbar.classList.add('show');
         assignEditKeys();
-        showToast('✏️ Edit mode ON — click any text to edit', 'success');
+        createImageInput(); // ensure input exists
+        showToast('✏️ Edit mode ON — click text or images to edit', 'success');
     } else {
         document.body.classList.remove('editing-active');
         if (btn) btn.classList.remove('active');
@@ -450,12 +550,9 @@ function exportHTML() {
 
 // Reset all edits to original
 function resetEdits() {
-    if (!confirm('Reset ALL text back to original? This cannot be undone.')) return;
+    if (!confirm('Reset ALL text and images back to original? This cannot be undone.')) return;
     localStorage.removeItem(EDIT_STORAGE_KEY);
-    document.querySelectorAll('[data-editable]').forEach(el => {
-        el.innerHTML = el.getAttribute('data-original') || el.innerHTML;
-    });
-    // Reload to clean state
+    localStorage.removeItem(IMAGE_STORAGE_KEY);
     location.reload();
 }
 
@@ -473,11 +570,14 @@ document.addEventListener('DOMContentLoaded', function() {
     assignEditKeys();
     storeOriginals();
     applySavedEdits();
-    // Re-assign keys after applying edits (in case new elements were added by renderProducts)
+    loadSavedImages();
+    createImageInput();
+    // Re-assign keys after dynamic content renders
     setTimeout(() => {
         assignEditKeys();
         storeOriginals();
-    }, 100);
+        loadSavedImages(); // re-apply for product images
+    }, 200);
 });
 
 // ========== EXPORT FOR CONSOLE DEBUG ==========

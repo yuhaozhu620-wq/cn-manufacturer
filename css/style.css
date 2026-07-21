@@ -1488,6 +1488,43 @@ a.contact-method:hover {
 .editing-active a { pointer-events: none; }
 .editing-active button:not(.edit-toggle-btn):not(.edit-tool-btn) { pointer-events: none; }
 
+/* Editable image overlay */
+.editing-active [data-editable-img] {
+    position: relative;
+    cursor: pointer;
+    outline: 2px dashed rgba(239,68,68,0.5);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+.editing-active [data-editable-img]:hover {
+    outline-color: rgba(239,68,68,0.9);
+}
+.editing-active [data-editable-img]::after {
+    content: '📷 Click to Change';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    pointer-events: none;
+    z-index: 5;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.editing-active [data-editable-img]:hover::after {
+    opacity: 1;
+}
+/* For img tags inside editable containers */
+.editing-active [data-editable-img] img {
+    pointer-events: none;
+}
+
 /* Edit mode body indicator */
 body.editing-active { padding-bottom: 60px; }
 
